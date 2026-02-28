@@ -164,7 +164,7 @@ export default function Home() {
   if (!session) {
     return (
       <main className="min-h-screen bg-black text-white flex items-center justify-center p-6">
-        <div className="max-w-md w-full bg-zinc-900 border border-zinc-800 p-10 rounded-[40px] shadow-2xl">
+        <div className="max-w-md w-full mx-auto bg-zinc-900 border border-zinc-800 p-6 sm:p-10 rounded-[40px] shadow-2xl">
           <header className="mb-8 text-center uppercase italic">
             <h1 className="text-5xl font-black text-orange-600 tracking-tighter">CILADA<span className="text-white">CORP</span></h1>
             <p className="text-zinc-500 text-[10px] font-bold tracking-[0.3em] mt-2">Área de Denúncia</p>
