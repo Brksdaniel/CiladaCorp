@@ -107,52 +107,46 @@ export default function Home() {
     if (!empresa || !descricao) return alert("Preencha tudo!");
     setLoading(true);
 
-    try {
-     const payload = {
-      empresa: empresa,
-      descricao: descricao,
-      nota: nota,
-      // ADICIONE ESTA LINHA ABAIXO:
-      nivel: nota === 5 ? "⚠️ AJUDA PSICOLOGICA!" : "🚩 Perigo" 
-    };
+    try { // <--- O INÍCIO DE TUDO
+      const payload: any = {
+        empresa,
+        descricao,
+        nota,
+        nivel: nota === 5 ? "⚠️ AJUDA PSICOLOGICA!" : "🚩 Perigo"
+      };
 
-    if (session?.user?.id) {
-      payload.user_id = session.user.id;
-    }
+      if (session?.user?.id) {
+        payload.user_id = session.user.id;
+      }
 
-    const { error } = await supabase
-      .from("denuncias")
-      .insert([payload]);
+      const { error } = await supabase.from("denuncias").insert([payload]);
 
-    if (error) {
+      if (error) {
+        alert("Erro ao publicar: " + error.message);
       } else {
-      // 1. Toca o som (Som de "pop/sucesso")
-      const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3'); 
-      audio.volume = 0.3;
-      audio.play().catch(e => console.log("Som bloqueado pelo navegador"));
+        // SOM E CONFETE
+        const audio = new Audio('https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3');
+        audio.volume = 0.3;
+        audio.play().catch(() => {});
 
-      // 2. Dispara os confetes laranjas da CiladaCorp
-      confetti({
-        particleCount: 150,
-        spread: 70,
-        origin: { y: 0.6 },
-        colors: ['#ea580c', '#ffffff', '#000000']
-      });
+        confetti({
+          particleCount: 150,
+          spread: 70,
+          origin: { y: 0.6 },
+          colors: ['#ea580c', '#ffffff', '#000000']
+        });
 
-    // 3. Limpa os campos e atualiza o mural
-      setEmpresa(""); 
-      setDescricao(""); 
-      setNota(3); 
-      buscarDados();
-    } // <-- Esta chave fecha o "else" do sucesso (onde tem o confete)
-    
-    setLoading(false); // Desativa o loading independente de dar erro ou não
-   
-   } catch (err) {
-    console.error(err);
-    alert("Erro crítico ao publicar");
-    setLoading(false);
-  }
+        setEmpresa("");
+        setDescricao("");
+        setNota(3);
+        buscarDados();
+      }
+    } catch (err) { // <--- AGORA O CATCH FUNCIONA!
+      console.error(err);
+      alert("Erro crítico ao publicar");
+    } finally {
+      setLoading(false); // Desativa o loading dando certo ou errado
+    }
 } // <-- Esta chave fecha a função enviarDenuncia
 
   async function reagir(denunciaId: number, emoji: string) {
