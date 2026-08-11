@@ -9,7 +9,7 @@ pra você nunca mais cair numa cilada na hora de aceitar um emprego.
 
 ---
 
-## 🔍 O que é?
+##O que é?
 
 O CiladaCorp é uma plataforma de avaliação de empresas feita para trabalhadores.
 Antes de assinar um contrato, você pode pesquisar a empresa e ver o que outros 
