@@ -1,4 +1,4 @@
-# 🚨 CiladaCorp
+
 
 Pesquise antes de aceitar! O CiladaCorp é uma plataforma onde trabalhadores avaliam e denunciam empresas — 
 pra você nunca mais cair numa cilada na hora de aceitar um emprego.
@@ -18,29 +18,29 @@ Aqui você fica sabendo antes!
 
 ---
 
-## ✅ Funcionalidades atuais
+##  Funcionalidades atuais
 
-- 📋 **Área de denúncia** — relate sua experiência com uma empresa
-- 🔐 **Login** — acesse sua conta para gerenciar suas avaliações
-
----
-
-## 🔮 Em breve
-
-- 📱 Versão mobile (app)
-- 🔎 Busca de empresas por nome
-- ⭐ Sistema de avaliação com notas
-- 💬 Comentários e respostas
+-  **Área de denúncia** — relate sua experiência com uma empresa
+-  **Login** — acesse sua conta para gerenciar suas avaliações
 
 ---
 
-## 🌐 Acesse agora
+##  Em breve
 
-👉 [cilada-corp.vercel.app](https://cilada-corp.vercel.app)
+- Versão mobile (app)
+- Busca de empresas por nome
+- Sistema de avaliação com notas
+-  Comentários e respostas
 
 ---
 
-## 🛠️ Tecnologias usadas
+##Acesse agora
+
+[cilada-corp.vercel.app](https://cilada-corp.vercel.app)
+
+---
+
+#Tecnologias usadas
 
 - [Next.js](https://nextjs.org)
 - [Vercel](https://vercel.com)
